@@ -1,7 +1,10 @@
 public class Main {
     public static void main(String[] args){
+        // adventure kreeres
 
-        UserInterface ui = new UserInterface();
+        Adventure adventure = new Adventure();
+        adventure.createMap();
+        UserInterface ui = new UserInterface(adventure);
         ui.start();
 
     }

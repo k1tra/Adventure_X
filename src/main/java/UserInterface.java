@@ -1,6 +1,10 @@
 import java.util.Scanner;
 
     public class UserInterface {
+        private Adventure adventure;
+        public UserInterface(Adventure adventure){
+            this.adventure = adventure;
+        }
 
 
         public void start() {
@@ -19,7 +23,6 @@ import java.util.Scanner;
                 switch(gameplay){
                     case "north":
                         System.out.println("north has been written, this is a general output");
-
                         break;
                     case "south":
                         System.out.println("south has been written, this is a general output");
@@ -32,7 +35,8 @@ import java.util.Scanner;
                         System.out.println("west has been written, this is a general output");
                         break;
                     case "look":
-                        System.out.println("look has been written, this is a general output");
+                        Room currentRoom = adventure.getCurrentRoom();
+                        System.out.println("name: " + currentRoom.getRoomName() + " description: " + currentRoom.getRoomDescription());
                         break;
                     case "help":
                         System.out.println("help has been written, this is a general output");
