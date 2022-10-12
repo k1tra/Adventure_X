@@ -52,6 +52,10 @@ public class Room {
     public Room getEast(){
         return east;
     }
+    // returnerer listen
+    public ArrayList<Item> getWeapons(){
+        return itemsRoom;
+    }
 
 
     // Setters

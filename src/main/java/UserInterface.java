@@ -9,7 +9,7 @@ import java.util.Scanner;
         public void start() {
             adventure = new Adventure();
             Scanner sc = new Scanner(System.in);
-            String gameplay;
+            String gameplay; // not needed anymore?
 
             System.out.println("Hey og velkommen. Nu er det tid til eventyr - you know what you gotta do. Eller gør du?");
             System.out.println("Du er landet i en krypt. Du må angive retninger efter kompasset. \n" +
@@ -19,13 +19,22 @@ import java.util.Scanner;
             //input switch-case gør det muligt for brugeren at lave inputs til den printede menu.
             do {
                 gameplay=sc.nextLine().toLowerCase();
+                String[] userInputList = gameplay.split(" ",2);
+                String command = userInputList[0];
+                String argument;
+                if(userInputList.length>1){
+                    argument=userInputList[1];
+                }else{
+                    argument="";
+                }
 
-                switch(gameplay){
+                switch(command){
                     case "north":
-                        adventure.movePlayer("north"); // hvor er metoden?
+                        adventure.movePlayer("north");
                         break;
                     case "south":
                         adventure.movePlayer("south");
+
                         break;
                     case "east":
                         adventure.movePlayer("east");
@@ -34,7 +43,7 @@ import java.util.Scanner;
                         adventure.movePlayer("west");
                         break;
                     case "look":
-                        // Room currentRoom = adventure.getCurrentRoom();
+                       adventure.lookAround();
                         // System.out.println("name: " + currentRoom.getRoomName() + " description: " + currentRoom.getRoomDescription());
                         break;
                     case "help":
@@ -58,7 +67,7 @@ import java.util.Scanner;
                         System.out.println("drop has been printed");
                         break;
                     case "take":
-                        System.out.println("take has been printed");
+                        adventure.takeItem(argument);
                         break;
                     case "inventory":
                         System.out.println("inventory has been printed");

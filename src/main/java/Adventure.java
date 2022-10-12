@@ -1,4 +1,5 @@
 public class Adventure {
+    // why do I make these attributes? -v- ah, its so we can use those variables?
     private Player player;
     private Map map;
 
@@ -7,6 +8,9 @@ public class Adventure {
         map = new Map();
         map.createMap();
         player.setCurrentRoom(map.getStarterRoom());
+    }
+    public void takeItem(String type){
+        player.pickUpItem(type);
     }
 
     /*public void go(String way){
@@ -48,6 +52,9 @@ public class Adventure {
     //moveplayer
     public void movePlayer(String way){
         player.movePlayer(way);
+    }
+    public void lookAround(){
+        player.lookAround();
     }
 
 }

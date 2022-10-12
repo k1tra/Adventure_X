@@ -14,13 +14,23 @@ public class Player {
             return;
         }
         itemsInventory.add(itemToPickUp);
+        System.out.println("You have picked up "+itemToPickUp.getType());
+    }
+    public void lookAround(){
+        System.out.print("You look around and this is what you see: "+currentRoom.getRoomDescription());
+        System.out.print("There is a ");
+        for(Item item: currentRoom.getWeapons()){
+            System.out.print(item.getType()+" , ");
+        }
+        System.out.println("");
     }
 
-
+    // getters
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
+    // setters
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
@@ -49,5 +59,6 @@ public class Player {
             return;
         }
         currentRoom = nextRoom;
+        System.out.println("You are now in "+currentRoom.getRoomName());
     }
 }
