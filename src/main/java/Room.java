@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+
 public class Room {
     private String name;
     private String description;
@@ -7,10 +10,17 @@ public class Room {
     private Room west;
     private Room east;
 
+    // der laves en tom liste af typen Item kaldet items
+    private ArrayList<Item> items = new ArrayList<Item>();
+
     public Room(String name, String description){
         this.name = name;
         this.description = description;
        // unnessecary to do this => this.north = this.west = this.south = this.east = null;
+    }
+
+    public void addItem(Item newItem){
+        items.add(newItem);
     }
 
     // Getters

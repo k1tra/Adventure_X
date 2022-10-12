@@ -1,5 +1,7 @@
 public class Adventure {
     private Room currentRoom;
+
+    // en konstruktør som sætter currentRoom laves
     public Adventure(){
         currentRoom = room1;
     }
@@ -61,7 +63,7 @@ public class Adventure {
         room3.setSouth(room6);
         room4.setNorth(room1);
         room4.setSouth(room7);
-        room5.setSouth(room8); // special room
+        room5.setSouth(room8); // special room with only one entrance from room 8
         room6.setNorth(room3);
         room6.setSouth(room9);
         room7.setNorth(room4);
@@ -72,6 +74,16 @@ public class Adventure {
         room9.setNorth(room6);
         room9.setWest(room8);
 
+        // items tilføjes
+        room1.addItem(new Item("Våben1"));
+        room2.addItem(new Item("Våben2"));
+        room3.addItem(new Item("Våben3"));
+        room4.addItem(new Item("Våben4"));
+        room5.addItem(new Item("Våben5"));
+        room6.addItem(new Item("Våben6"));
+        room7.addItem(new Item("Våben7"));
+        room8.addItem(new Item("Våben8"));
+        room9.addItem(new Item("Våben9"));
 
     }
 

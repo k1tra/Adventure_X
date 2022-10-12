@@ -42,6 +42,15 @@ import java.util.Scanner;
                         break;
                     case "exit":
                         break;
+                    case "drop":
+                        System.out.println("drop has been printed");
+                        break;
+                    case "take":
+                        System.out.println("take has been printed");
+                        break;
+                    case "inventory":
+                        System.out.println("inventory has been printed");
+                        break;
                     default:
                         System.out.println("the switch case has passed to default state");
                         break;
