@@ -16,6 +16,13 @@ public class Player {
         itemsInventory.add(itemToPickUp);
         System.out.println("You have picked up "+itemToPickUp.getType());
     }
+    public void lookAtInventory(){
+        System.out.println("This is what you have in your stash ");
+        for(Item item: itemsInventory){
+            System.out.println(item.getType()+" , ");
+        }
+    }
+
     public void lookAround(){
         System.out.print("You look around and this is what you see: "+currentRoom.getRoomDescription());
         System.out.print("There is a ");

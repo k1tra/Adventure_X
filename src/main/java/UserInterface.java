@@ -70,7 +70,7 @@ import java.util.Scanner;
                         adventure.takeItem(argument);
                         break;
                     case "inventory":
-                        System.out.println("inventory has been printed");
+                        adventure.lookAtInventory();
                         break;
                     default:
                         System.out.println("the switch case has passed to default state");

@@ -9,6 +9,7 @@ public class Adventure {
         map.createMap();
         player.setCurrentRoom(map.getStarterRoom());
     }
+
     public void takeItem(String type){
         player.pickUpItem(type);
     }
@@ -55,6 +56,9 @@ public class Adventure {
     }
     public void lookAround(){
         player.lookAround();
+    }
+    public void lookAtInventory(){
+        player.lookAtInventory();
     }
 
 }
