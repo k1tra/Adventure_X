@@ -11,7 +11,7 @@ public class Room {
     private Room east;
 
     // der laves en tom liste af typen Item kaldet items
-    private ArrayList<Item> items = new ArrayList<Item>();
+    private ArrayList<Item> items = new ArrayList<>();
 
     public Room(String name, String description){
         this.name = name;

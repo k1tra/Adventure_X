@@ -2,12 +2,12 @@ import java.util.Scanner;
 
     public class UserInterface {
         private Adventure adventure;
-        public UserInterface(Adventure adventure){
-            this.adventure = adventure;
-        }
+        // private Player player;
+
 
 
         public void start() {
+            adventure = new Adventure();
             Scanner sc = new Scanner(System.in);
             String gameplay;
 
@@ -22,25 +22,37 @@ import java.util.Scanner;
 
                 switch(gameplay){
                     case "north":
-                        adventure.go("north");
+                        adventure.movePlayer("north"); // hvor er metoden?
                         break;
                     case "south":
-                        adventure.go("south");
+                        adventure.movePlayer("south");
                         break;
                     case "east":
-                        adventure.go("east");
+                        adventure.movePlayer("east");
                         break;
                     case "west":
-                        adventure.go("west");
+                        adventure.movePlayer("west");
                         break;
                     case "look":
-                        Room currentRoom = adventure.getCurrentRoom();
-                        System.out.println("name: " + currentRoom.getRoomName() + " description: " + currentRoom.getRoomDescription());
+                        // Room currentRoom = adventure.getCurrentRoom();
+                        // System.out.println("name: " + currentRoom.getRoomName() + " description: " + currentRoom.getRoomDescription());
                         break;
                     case "help":
-                        System.out.println("help has been written, this is a general output");
+                        System.out.println("Du åbner en støvet hjælpemanual. Siderne kan ikke rives fra hinanden, og dette er hvad du ser:\n Du kan indtaste følgende kommandoer:");
+                        System.out.println("For at få en beskrivelse af dine omgivelser skal du skrive 'Look'");
+                        System.out.println("For at bevæge dig i retninger skal du skrive 'go' efterfulgt af direction (north, south, east, west)");
+                        System.out.println("For at se hvad du har i din inventory skal du skrive 'inventory'");
+                        System.out.println("For at tage et item skal du skrive 'take + item'");
+                        System.out.println("For at samle et item op skal du skrive 'take' efterfulgt af navnet på item");
+                        System.out.println("For at smide et item skal du skrive 'drop' efterfulgt af navnet på itemmet. Det vil så ligge i det rum du smed det i");
+                        System.out.println("For at spise et item skal du skrive 'eat' efterfulgt af navnet på item");
+                        System.out.println("For at equippe et våben skriver du 'equip' efterfulgt af navnet på item");
+                        System.out.println("For at unequippe skriver du 'unequip' efterfulgt af navnet på itemm");
+                        System.out.println("For at angribe skal du skrive 'attack' efterfulgt af navnet på fjenden");
+                        System.out.println("For at afslutte spillet skal du skrive 'exit'");
                         break;
                     case "exit":
+                        System.out.println("You have exited the game.");
                         break;
                     case "drop":
                         System.out.println("drop has been printed");
