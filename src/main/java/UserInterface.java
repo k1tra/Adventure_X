@@ -22,17 +22,16 @@ import java.util.Scanner;
 
                 switch(gameplay){
                     case "north":
-                        System.out.println("north has been written, this is a general output");
+                        adventure.go("north");
                         break;
                     case "south":
-                        System.out.println("south has been written, this is a general output");
+                        adventure.go("south");
                         break;
                     case "east":
-                        System.out.println("east has been written, this is a general output");
-
+                        adventure.go("east");
                         break;
                     case "west":
-                        System.out.println("west has been written, this is a general output");
+                        adventure.go("west");
                         break;
                     case "look":
                         Room currentRoom = adventure.getCurrentRoom();

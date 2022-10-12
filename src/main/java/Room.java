@@ -20,6 +20,19 @@ public class Room {
     public String getRoomDescription(){
         return description;
     }
+    public Room getNorth(){
+        return north;
+    }
+    public Room getSouth(){
+        return south;
+    }
+    public Room getWest(){
+        return west;
+    }
+    public Room getEast(){
+        return east;
+    }
+
 
     // Setters
     public void setNorth(Room north){
