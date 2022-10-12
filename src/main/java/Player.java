@@ -4,6 +4,19 @@ public class Player {
     private int hp;
     private Room currentRoom;
 
+    // inventory arraylist
+    ArrayList<Item> itemsInventory = new ArrayList<>();
+
+    public void pickUpItem(String type){
+        Item itemToPickUp = currentRoom.takeItemRoom(type);
+        if(itemToPickUp==null){
+            System.out.println("That item does not exist!");
+            return;
+        }
+        itemsInventory.add(itemToPickUp);
+    }
+
+
     public Room getCurrentRoom() {
         return currentRoom;
     }

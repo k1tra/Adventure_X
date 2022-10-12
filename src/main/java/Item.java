@@ -4,4 +4,7 @@ public class Item {
     public Item(String type){
         this.type=type;
     }
+    public String getType(){
+        return type;
+    }
 }

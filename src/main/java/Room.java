@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Room {
@@ -11,7 +10,7 @@ public class Room {
     private Room east;
 
     // der laves en tom liste af typen Item kaldet items
-    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> itemsRoom = new ArrayList<>();
 
     public Room(String name, String description){
         this.name = name;
@@ -19,9 +18,20 @@ public class Room {
        // unnessecary to do this => this.north = this.west = this.south = this.east = null;
     }
 
-    public void addItem(Item newItem){
-        items.add(newItem);
+    public void addItemRoom(Item newItem){
+        itemsRoom.add(newItem);
     }
+    // items kan fjernes
+    public Item takeItemRoom(String itemName){
+        for(Item itemRoom : itemsRoom) {
+            if(itemRoom.getType().contains(itemName)){
+                itemsRoom.remove(itemRoom);
+                return itemRoom;
+            }
+        }
+        return null;
+    }
+
 
     // Getters
     public String getRoomName(){

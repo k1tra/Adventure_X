@@ -36,14 +36,14 @@ public class Map {
         room9.setWest(room8);
 
         // items tilføjes
-        room1.addItem(new Item("Våben1"));
-        room2.addItem(new Item("Våben2"));
-        room3.addItem(new Item("Våben3"));
-        room4.addItem(new Item("Våben4"));
-        room5.addItem(new Item("Våben5"));
-        room6.addItem(new Item("Våben6"));
-        room7.addItem(new Item("Våben7"));
-        room8.addItem(new Item("Våben8"));
-        room9.addItem(new Item("Våben9"));
+        room1.addItemRoom(new Item("Våben1"));
+        room2.addItemRoom(new Item("Våben2"));
+        room3.addItemRoom(new Item("Våben3"));
+        room4.addItemRoom(new Item("Våben4"));
+        room5.addItemRoom(new Item("Våben5"));
+        room6.addItemRoom(new Item("Våben6"));
+        room7.addItemRoom(new Item("Våben7"));
+        room8.addItemRoom(new Item("Våben8"));
+        room9.addItemRoom(new Item("Våben9"));
     }
 }
