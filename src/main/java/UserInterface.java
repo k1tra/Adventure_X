@@ -68,7 +68,7 @@ import java.util.Scanner;
                         System.out.println("You have exited the game.");
                         break;
                     case "drop":
-                        System.out.println("drop has been printed");
+                        adventure.playerDropItem(argument);
                         break;
                     case "take":
                         adventure.takeItem(argument);
@@ -78,6 +78,9 @@ import java.util.Scanner;
                         break;
                     case "health":
                         System.out.println("Your health is "+player.getHealth());
+                        break;
+                    case "eat":
+                        adventure.playerEatItem(argument);
                         break;
                     default:
                         System.out.println("the switch case has passed to default state");

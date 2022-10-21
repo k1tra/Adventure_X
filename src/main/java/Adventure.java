@@ -10,6 +10,21 @@ public class Adventure {
         player.setCurrentRoom(map.getStarterRoom());
     }
 
+    public void playerDropItem(String itemName){
+        player.dropItem(itemName);
+    }
+
+    public void playerEatItem(String itemName){
+        eatStatus status = player.eatFood(itemName);
+        if(status==eatStatus.eaten){
+            System.out.println("I ate "+itemName);
+        }else if(status==eatStatus.unedible) {
+            System.out.println("You cannot eat that!");
+        }else if(status==eatStatus.nonexisting){
+            System.out.println("That item does not exist!");
+            }
+        }
+
     public void takeItem(String type){
         player.pickUpItem(type);
     }

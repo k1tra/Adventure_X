@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 
+enum eatStatus{
+    eaten,
+    nonexisting,
+    unedible,
+}
+
 public class Player {
     private int hp;
     private Room currentRoom;
@@ -26,6 +32,32 @@ public class Player {
             System.out.println(item.getType()+" , ");
         }
     }
+    public void dropItem(String itemName){
+        for(Item itemRoom : itemsInventory) {
+            if (itemRoom.getType().contains(itemName)) {
+                itemsInventory.remove(itemRoom);
+                currentRoom.addItemRoom(itemRoom);
+                System.out.println(itemName + " has been dropped on the floor. Bonk!");
+                return;
+            }
+        }
+        System.out.println("That particular item is not in your inventory!");
+    }
+    public eatStatus eatFood(String itemName) {
+        for (Item itemRoom : itemsInventory) {
+            if (itemRoom.getType().contains(itemName)) {
+                if(itemRoom instanceof Food){
+                    Food fooditem = (Food)itemRoom;
+                    itemsInventory.remove(itemRoom);
+                    hp+= fooditem.getFoodHp();
+                    return eatStatus.eaten;
+                }else{
+                    return eatStatus.unedible;
+                }
+            }
+        }
+        return eatStatus.nonexisting;
+    }
 
     public void lookAround(){
         System.out.print("You look around and this is what you see: "+currentRoom.getRoomDescription());
@@ -47,6 +79,10 @@ public class Player {
     // setters
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
+    }
+
+    public void setHp(int hp){
+        this.hp = hp;
     }
 
     public void movePlayer(String way) {

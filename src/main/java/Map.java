@@ -45,5 +45,8 @@ public class Map {
         room7.addItemRoom(new Item("våben7"));
         room8.addItemRoom(new Item("våben8"));
         room9.addItemRoom(new Item("våben9"));
+        room9.addItemRoom(new Food("apple",40));
+        room1.addItemRoom(new Food("banana",15));
+        room2.addItemRoom(new Food("sugarcube", 60));
     }
 }
