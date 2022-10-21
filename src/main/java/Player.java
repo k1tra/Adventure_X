@@ -4,6 +4,10 @@ public class Player {
     private int hp;
     private Room currentRoom;
 
+    public Player(int hp){
+        this.hp = hp;
+    }
+
     // inventory arraylist
     ArrayList<Item> itemsInventory = new ArrayList<>();
 
@@ -35,6 +39,9 @@ public class Player {
     // getters
     public Room getCurrentRoom() {
         return currentRoom;
+    }
+    public int getHealth(){
+        return hp;
     }
 
     // setters

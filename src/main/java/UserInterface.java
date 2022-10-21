@@ -2,12 +2,16 @@ import java.util.Scanner;
 
     public class UserInterface {
         private Adventure adventure;
+        private Player player;
         // private Player player;
 
 
 
         public void start() {
             adventure = new Adventure();
+            player = new Player(100);
+
+
             Scanner sc = new Scanner(System.in);
             String gameplay; // not needed anymore?
 
@@ -71,6 +75,9 @@ import java.util.Scanner;
                         break;
                     case "inventory":
                         adventure.lookAtInventory();
+                        break;
+                    case "health":
+                        System.out.println("Your health is "+player.getHealth());
                         break;
                     default:
                         System.out.println("the switch case has passed to default state");
