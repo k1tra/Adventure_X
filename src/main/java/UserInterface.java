@@ -2,14 +2,9 @@ import java.util.Scanner;
 
     public class UserInterface {
         private Adventure adventure;
-        private Player player;
-        // private Player player;
-
-
 
         public void start() {
             adventure = new Adventure();
-            player = new Player(100);
 
 
             Scanner sc = new Scanner(System.in);
@@ -77,7 +72,7 @@ import java.util.Scanner;
                         adventure.lookAtInventory();
                         break;
                     case "health":
-                        System.out.println("Your health is "+player.getHealth());
+                        System.out.println("Your health is "+adventure.playerHealth());
                         break;
                     case "eat":
                         adventure.playerEatItem(argument);

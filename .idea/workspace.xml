@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7bc9db4-3f5f-4eb3-8685-03e25b2baaec" name="Changes" comment="health command virker og udprinter spillerens liv på playerobjekt.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Food.java" afterDir="false" />
+    <list default="true" id="e7bc9db4-3f5f-4eb3-8685-03e25b2baaec" name="Changes" comment="det er nu muligt at samle food op, og det er muligt for eatfood at typecaste food fra item til food og spise det og få liv i henhold til hvor meget liv maden skulle give spilleren. Der er lavet en return ENUM status som giver meddelse om itemmet IKKE er food, og returne &quot;You cannot eat that!&quot; hvis det er et ITEM men ikke af subklassen FOOD.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Adventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Adventure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
@@ -38,17 +38,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Adventure">
     <configuration name="Unnamed" type="AntRunConfiguration" nameIsGenerated="true">
       <method v="2">
@@ -76,7 +76,8 @@
       <option name="presentableId" value="Default" />
       <updated>1665574503769</updated>
       <workItem from="1665574505022" duration="41564000" />
-      <workItem from="1666341453811" duration="10075000" />
+      <workItem from="1666341453811" duration="12209000" />
+      <workItem from="1666420398360" duration="2481000" />
     </task>
     <task id="LOCAL-00001" summary="target/ added to gitignore">
       <created>1665574571492</created>
@@ -148,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666347380014</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="det er nu muligt at samle food op, og det er muligt for eatfood at typecaste food fra item til food og spise det og få liv i henhold til hvor meget liv maden skulle give spilleren. Der er lavet en return ENUM status som giver meddelse om itemmet IKKE er food, og returne &quot;You cannot eat that!&quot; hvis det er et ITEM men ikke af subklassen FOOD.">
+      <created>1666357692614</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666357692614</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,23 +185,8 @@
     <MESSAGE value="Nu kan den samle våben op og printe våbenet ud i konsollen." />
     <MESSAGE value="Inventory virker, den printer listen ud" />
     <MESSAGE value="health command virker og udprinter spillerens liv på playerobjekt." />
-    <option name="LAST_COMMIT_MESSAGE" value="health command virker og udprinter spillerens liv på playerobjekt." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/UserInterface.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>3</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="det er nu muligt at samle food op, og det er muligt for eatfood at typecaste food fra item til food og spise det og få liv i henhold til hvor meget liv maden skulle give spilleren. Der er lavet en return ENUM status som giver meddelse om itemmet IKKE er food, og returne &quot;You cannot eat that!&quot; hvis det er et ITEM men ikke af subklassen FOOD." />
+    <option name="LAST_COMMIT_MESSAGE" value="det er nu muligt at samle food op, og det er muligt for eatfood at typecaste food fra item til food og spise det og få liv i henhold til hvor meget liv maden skulle give spilleren. Der er lavet en return ENUM status som giver meddelse om itemmet IKKE er food, og returne &quot;You cannot eat that!&quot; hvis det er et ITEM men ikke af subklassen FOOD." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

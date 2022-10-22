@@ -20,7 +20,7 @@ public class Player {
     public void pickUpItem(String type){
         Item itemToPickUp = currentRoom.takeItemRoom(type);
         if(itemToPickUp==null){
-            System.out.println("That item does not exist!");
+            System.out.println("That item does not exist! Response from pickUpItem Player");
             return;
         }
         itemsInventory.add(itemToPickUp);
@@ -48,8 +48,8 @@ public class Player {
             if (itemRoom.getType().contains(itemName)) {
                 if(itemRoom instanceof Food){
                     Food fooditem = (Food)itemRoom;
+                    hp += (fooditem.getFoodHp());
                     itemsInventory.remove(itemRoom);
-                    hp+= fooditem.getFoodHp();
                     return eatStatus.eaten;
                 }else{
                     return eatStatus.unedible;

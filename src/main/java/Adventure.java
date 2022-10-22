@@ -13,11 +13,15 @@ public class Adventure {
     public void playerDropItem(String itemName){
         player.dropItem(itemName);
     }
+    public int playerHealth(){
+        return player.getHealth();
+    }
 
     public void playerEatItem(String itemName){
-        eatStatus status = player.eatFood(itemName);
+        //player.eatFood(itemName);
+        eatStatus status = player.eatFood(itemName); // eksekverer den også denne metode ved initialiseringen?
         if(status==eatStatus.eaten){
-            System.out.println("I ate "+itemName);
+            System.out.println("I ate "+itemName+" and your health is now "+player.getHealth());
         }else if(status==eatStatus.unedible) {
             System.out.println("You cannot eat that!");
         }else if(status==eatStatus.nonexisting){
