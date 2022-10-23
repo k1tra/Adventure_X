@@ -77,6 +77,10 @@ import java.util.Scanner;
                     case "eat":
                         adventure.playerEatItem(argument);
                         break;
+                    case "equip":
+                        // adventure method der kalder på player her
+                    case "attack":
+                        // adventure method der kalder på player her
                     default:
                         System.out.println("the switch case has passed to default state");
                         break;

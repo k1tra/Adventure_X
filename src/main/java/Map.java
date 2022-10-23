@@ -49,5 +49,6 @@ public class Map {
         room1.addItemRoom(new Food("banana",15));
         room1.addItemRoom(new Food("castello", -20));
         room2.addItemRoom(new Food("sugarcube", 60));
+        room1.addItemRoom(new MeleeWeapon("sword",5));
     }
 }

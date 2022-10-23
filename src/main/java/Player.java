@@ -9,9 +9,12 @@ enum eatStatus{
 public class Player {
     private int hp;
     private Room currentRoom;
+    private int damage;
 
-    public Player(int hp){
+    public Player(int hp, int damage){
         this.hp = hp;
+        this.damage = damage;
+
     }
 
     // inventory arraylist
@@ -26,10 +29,12 @@ public class Player {
         itemsInventory.add(itemToPickUp);
         System.out.println("You have picked up "+itemToPickUp.getType());
     }
+
     public void lookAtInventory(){
         System.out.println("This is what you have in your stash ");
         for(Item item: itemsInventory){
-            System.out.println(item.getType()+" , ");
+            System.out.println(item.getType()+" ");
+            // Hvis weapon findes, skal der angives hvilket våbent man har equipped. Man skal altid have et våben tænker jeg, for man har jo også sine knytnæver at slå med.
         }
     }
     public void dropItem(String itemName){
@@ -58,6 +63,22 @@ public class Player {
         }
         return eatStatus.nonexisting;
     }
+    // EQUIP
+    public void equipWeapon(String itemName){
+            for (Item itemRoom : itemsInventory) {
+                if (itemRoom.getType().contains(itemName)) {
+                    if(itemRoom instanceof Weapon){
+                        Weapon weaponitem = (Weapon)itemRoom;
+                        damage += (weaponitem.getWeaponDamage());
+                        itemsInventory.remove(itemRoom);
+                        return eatStatus.eaten;
+                    }else{
+                        return eatStatus.unedible;
+                    }
+                }
+            }
+            return eatStatus.nonexisting;
+        }
 
     public void lookAround(){
         System.out.print("You look around and this is what you see: "+currentRoom.getRoomDescription());
