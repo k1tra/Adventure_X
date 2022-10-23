@@ -9,12 +9,12 @@ enum eatStatus{
 public class Player {
     private int hp;
     private Room currentRoom;
-    private int damage;
 
-    public Player(int hp, int damage){
+    private Weapon currentWeapon;
+
+    public Player(int hp){
         this.hp = hp;
-        this.damage = damage;
-
+        // this.damage = damage;
     }
 
     // inventory arraylist
@@ -64,21 +64,43 @@ public class Player {
         return eatStatus.nonexisting;
     }
     // EQUIP
-    public void equipWeapon(String itemName){
+    public eatStatus equipWeapon(String itemName){
             for (Item itemRoom : itemsInventory) {
                 if (itemRoom.getType().contains(itemName)) {
                     if(itemRoom instanceof Weapon){
                         Weapon weaponitem = (Weapon)itemRoom;
-                        damage += (weaponitem.getWeaponDamage());
+                        currentWeapon = weaponitem;
                         itemsInventory.remove(itemRoom);
+                        // TO-DO: Lav statusteksten om så den både omfatter food og weapon
+                        System.out.println("You have succesfully managed to equip "+itemName+"."+"and your damage has been increased by "+weaponitem.getWeaponDamage()+".");
                         return eatStatus.eaten;
                     }else{
+                        System.out.println("You cannot equip that!");
                         return eatStatus.unedible;
                     }
                 }
             }
+        System.out.println("You have no such weapon");
             return eatStatus.nonexisting;
         }
+        public eatStatus unequipWeapon(String itemName) {
+            Weapon equippedWeapon = currentWeapon;
+            if (equippedWeapon != null) {
+                removeWeapon(itemName);
+                itemsInventory.add(equippedWeapon);
+                System.out.println("You have unequipped "+itemName+" and your damage has been decreased by "+equippedWeapon.getWeaponDamage()+".");
+                return eatStatus.eaten;
+            } else {
+                return eatStatus.nonexisting;
+            }
+        }
+
+        public void removeWeapon(String itemName){
+            currentWeapon=null;
+        }
+
+
+
 
     public void lookAround(){
         System.out.print("You look around and this is what you see: "+currentRoom.getRoomDescription());

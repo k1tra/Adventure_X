@@ -78,7 +78,11 @@ import java.util.Scanner;
                         adventure.playerEatItem(argument);
                         break;
                     case "equip":
-                        // adventure method der kalder på player her
+                        adventure.playerEquip(argument);
+                        break;
+                    case "unequip":
+                        adventure.playerUnEquip(argument);
+                        break;
                     case "attack":
                         // adventure method der kalder på player her
                     default:
