@@ -4,4 +4,10 @@ public class MeleeWeapon extends Weapon {
       super(type, damage);
   }
 
+    @Override
+    public int attack() {
+      return damage;
+    }
+
+
 }

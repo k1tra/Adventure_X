@@ -3,6 +3,8 @@ import java.util.Scanner;
     public class UserInterface {
         private Adventure adventure;
 
+
+
         public void start() {
             adventure = new Adventure();
 
@@ -33,7 +35,6 @@ import java.util.Scanner;
                         break;
                     case "south":
                         adventure.movePlayer("south");
-
                         break;
                     case "east":
                         adventure.movePlayer("east");
@@ -63,10 +64,18 @@ import java.util.Scanner;
                         System.out.println("You have exited the game.");
                         break;
                     case "drop":
-                        adventure.playerDropItem(argument);
+                        if(argument.length()>0) {
+                            adventure.playerDropItem(argument);
+                        }else{
+                            System.out.println("What do you want to "+command+"?");
+                        }
                         break;
                     case "take":
-                        adventure.takeItem(argument);
+                        if(argument.length()>0) {
+                            adventure.takeItem(argument);
+                        }else{
+                            System.out.println("What do you want to "+command+"?");
+                        }
                         break;
                     case "inventory":
                         adventure.lookAtInventory();
@@ -75,7 +84,12 @@ import java.util.Scanner;
                         System.out.println("Your health is "+adventure.playerHealth());
                         break;
                     case "eat":
-                        adventure.playerEatItem(argument);
+                        // 25/10- FORTSÆT MED DET HER
+                        if(argument.length()>0) {
+                            adventure.playerEatItem(argument);
+                        }else{
+                            System.out.println("What do you want to "+command+"?");
+                        }
                         break;
                     case "equip":
                         adventure.playerEquip(argument);
@@ -84,6 +98,8 @@ import java.util.Scanner;
                         adventure.playerUnEquip(argument);
                         break;
                     case "attack":
+                        adventure.playerAttack();
+                        break;
                         // adventure method der kalder på player her
                     default:
                         System.out.println("the switch case has passed to default state");

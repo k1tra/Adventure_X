@@ -35,6 +35,9 @@ public class Adventure {
             }
         }
 
+        public void playerAttack(){
+        player.playerAttack();
+        }
     public void takeItem(String type){
         player.pickUpItem(type);
     }

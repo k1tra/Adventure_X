@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7bc9db4-3f5f-4eb3-8685-03e25b2baaec" name="Changes" comment="Weapon classes oprettet succesfuldt --- &#10;Weapons placeret i rum 1. Muligt at take weapon,">
+    <list default="true" id="e7bc9db4-3f5f-4eb3-8685-03e25b2baaec" name="Changes" comment="Det er muligt at equippe/unequippe items. Bliver henholdsvist tilføjet og fjernet fra inventory. &#10;Skal lave om i ENUM-status-navnene.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Adventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Adventure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MeleeWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MeleeWeapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RangedWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RangedWeapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +79,8 @@
       <updated>1665574503769</updated>
       <workItem from="1665574505022" duration="41564000" />
       <workItem from="1666341453811" duration="12209000" />
-      <workItem from="1666420398360" duration="17354000" />
+      <workItem from="1666420398360" duration="20983000" />
+      <workItem from="1666712013292" duration="7247000" />
     </task>
     <task id="LOCAL-00001" summary="target/ added to gitignore">
       <created>1665574571492</created>
@@ -168,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666509463128</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Det er muligt at equippe/unequippe items. Bliver henholdsvist tilføjet og fjernet fra inventory. &#10;Skal lave om i ENUM-status-navnene.">
+      <created>1666512447749</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1666512447749</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +212,8 @@
     <MESSAGE value="det er nu muligt at samle food op, og det er muligt for eatfood at typecaste food fra item til food og spise det og få liv i henhold til hvor meget liv maden skulle give spilleren. Der er lavet en return ENUM status som giver meddelse om itemmet IKKE er food, og returne &quot;You cannot eat that!&quot; hvis det er et ITEM men ikke af subklassen FOOD." />
     <MESSAGE value="Fixet en fejl hvor den resettede health til 100" />
     <MESSAGE value="Weapon classes oprettet succesfuldt --- &#10;Weapons placeret i rum 1. Muligt at take weapon," />
-    <option name="LAST_COMMIT_MESSAGE" value="Weapon classes oprettet succesfuldt --- &#10;Weapons placeret i rum 1. Muligt at take weapon," />
+    <MESSAGE value="Det er muligt at equippe/unequippe items. Bliver henholdsvist tilføjet og fjernet fra inventory. &#10;Skal lave om i ENUM-status-navnene." />
+    <option name="LAST_COMMIT_MESSAGE" value="Det er muligt at equippe/unequippe items. Bliver henholdsvist tilføjet og fjernet fra inventory. &#10;Skal lave om i ENUM-status-navnene." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
