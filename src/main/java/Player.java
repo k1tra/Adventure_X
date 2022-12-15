@@ -1,172 +1,123 @@
 import java.util.ArrayList;
 
-enum eatStatus {
-    eaten,
-    nonexisting,
-    unedible,
-}
-
 public class Player {
-    private int hp;
-    private Room currentRoom;
 
-    private Weapon currentWeapon;
+    protected Room currentRoom;
+    private ArrayList<Item> inventory = new ArrayList();
+    protected Weapon equippedWeapon;
+    protected int health;
 
-    public Player(int hp) {
-        this.hp = hp;
-        // this.damage = damage;
-    }
-
-    // inventory arraylist
-    ArrayList<Item> itemsInventory = new ArrayList<>();
-
-    public void pickUpItem(String type) {
-        Item itemToPickUp = currentRoom.takeItemRoom(type);
-        if (itemToPickUp == null) {
-            System.out.println("That item does not exist! Response from pickUpItem Player");
-            return;
-        }
-        itemsInventory.add(itemToPickUp);
-        System.out.println("You have picked up " + itemToPickUp.getType());
-    }
-
-    public void lookAtInventory() {
-        System.out.println("This is what you have in your stash ");
-        for (Item item : itemsInventory) {
-            System.out.println(item.getType() + " ");
-            // Hvis weapon findes, skal der angives hvilket våbent man har equipped. Man skal altid have et våben tænker jeg, for man har jo også sine knytnæver at slå med.
-        }
-    }
-
-    public void dropItem(String itemName) {
-        for (Item itemRoom : itemsInventory) {
-            if (itemRoom.getType().contains(itemName)) {
-                itemsInventory.remove(itemRoom);
-                currentRoom.addItemRoom(itemRoom);
-                System.out.println(itemName + " has been dropped on the floor. Bonk!");
-                return;
-            }
-        }
-        System.out.println("That particular item is not in your inventory!");
-    }
-
-    public eatStatus eatFood(String itemName) {
-        for (Item itemRoom : itemsInventory) {
-            if (itemRoom.getType().contains(itemName)) {
-                if (itemRoom instanceof Food) {
-                    Food fooditem = (Food) itemRoom;
-                    hp += (fooditem.getFoodHp());
-                    itemsInventory.remove(itemRoom);
-                    return eatStatus.eaten;
-                } else {
-                    return eatStatus.unedible;
-                }
-            }
-        }
-        return eatStatus.nonexisting;
-    }
-
-    // EQUIP
-    public eatStatus equipWeapon(String itemName) {
-        for (Item itemRoom : itemsInventory) {
-            if (itemRoom.getType().contains(itemName)) {
-                if (itemRoom instanceof Weapon) {
-                    Weapon weaponitem = (Weapon) itemRoom;
-                    currentWeapon = weaponitem;
-                    itemsInventory.remove(itemRoom);
-                    // TO-DO: Lav statusteksten om så den både omfatter food og weapon
-                    System.out.println("You have succesfully managed to equip " + itemName + "." + "and your damage has been increased by " + weaponitem.getWeaponDamage() + ".");
-                    return eatStatus.eaten;
-                } else {
-                    System.out.println("You cannot equip that!");
-                    return eatStatus.unedible;
-                }
-            }
-        }
-        System.out.println("You have no such weapon");
-        return eatStatus.nonexisting;
-    }
-
-    public eatStatus unequipWeapon(String itemName) {
-        Weapon equippedWeapon = currentWeapon;
-        if (equippedWeapon != null) {
-            removeWeapon(itemName);
-            itemsInventory.add(equippedWeapon);
-            System.out.println("You have unequipped " + itemName + " and your damage has been decreased by " + equippedWeapon.getWeaponDamage() + ".");
-            return eatStatus.eaten;
-        } else {
-            return eatStatus.nonexisting;
-        }
-    }
-
-    public void playerAttack() {
-        if(currentWeapon==null){
-            System.out.println("You dont have a weapon equipped!");
-        }else{
-            int damagedone = currentWeapon.attack();
-            if(damagedone<0){
-                System.out.println("Your attack failed!");
-            }else{
-                System.out.println("You hit thin air for a magnificent "+damagedone);
-            }
-        }
-    }
-
-    public void removeWeapon(String itemName) {
-        currentWeapon = null;
-    }
-
-    public void lookAround() {
-        System.out.print("You look around and this is what you see: " + currentRoom.getRoomDescription());
-        System.out.print("There is a ");
-        for (Item item : currentRoom.getWeapons()) {
-            System.out.print(item.getType() + " , ");
-        }
-        System.out.println("");
-    }
-
-    // getters
-    public Room getCurrentRoom() {
-        return currentRoom;
+    public Player() {
+        this.health = 100;
     }
 
     public int getHealth() {
-        return hp;
+        return health;
     }
 
-    // setters
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
+    public Room getCurrentRoom() {
+        return currentRoom;
     }
 
-    public void movePlayer(String way) {
-        Room nextRoom;
-        switch (way) {
-            case "north":
-                nextRoom = currentRoom.getNorth();
-                break;
-            case "south":
-                nextRoom = currentRoom.getSouth();
-                break;
-            case "east":
-                nextRoom = currentRoom.getEast();
-                break;
-            case "west":
-                nextRoom = currentRoom.getWest();
-                break;
-            default:
-                System.out.println("You cannot move that way");
-                return;
+    public ArrayList<Item> getInventory() {
+        return inventory;
+    }
+
+    public Weapon getEquippedWeapon() {
+        return equippedWeapon;
+    }
+
+    public boolean takeItem(String itemName) {
+        for (Item item : currentRoom.getItems()) {
+            if (item.getItemName().equals(itemName)) {
+                inventory.add(item);
+                currentRoom.removeItem(item);
+                return true;
+            }
         }
-        if (nextRoom == null) {
-            System.out.println("You cannot move this way");
-            return;
+        return false;
+    }
+
+    public boolean dropItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getItemName().equals(itemName)) {
+                currentRoom.addItem(item);
+                inventory.remove(item);
+                return true;
+            }
         }
-        currentRoom = nextRoom;
-        System.out.println("You are now in " + currentRoom.getRoomName());
+        return false;
+    }
+
+    public boolean eatFood(String itemName) {
+        for (Item item : inventory) {
+            if (item instanceof Food) {
+                if (item.getItemName().equals(itemName)) {
+                    currentRoom.removeItem(item);
+                    inventory.remove(item);
+                    health = health + ((Food) item).getHealthPoints();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean equipWeapon(String itemName) {
+        for (Item item : inventory) {
+            if (item instanceof Weapon) {
+                if (item.getItemName().equals(itemName)) {
+                    equippedWeapon = (Weapon) item;
+                    inventory.remove(item);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public AttackCommand attackEnemy(Enemy enemy) {
+        if (equippedWeapon == null) {
+            return AttackCommand.NO_WEAPON_EQUIPPED;
+        } else if (!equippedWeapon.canUse()) {
+            return AttackCommand.NO_AMMO;
+        } else {
+            enemy.hpAfterHit(this.equippedWeapon.getDamage());
+            this.hpAfterHit(enemy.getEquippedWeapon().getDamage());
+            enemy.enemyHealth();
+            return AttackCommand.Succesful;
+        }
+    }
+
+    public void hpAfterHit(int damage) {
+        health -= damage;
+    }
+
+    public boolean move(char direction) {
+        Room requestedRoom = null;
+
+        if (direction == 'n') {
+            requestedRoom = currentRoom.getNorth();
+        } else if (direction == 'e') {
+            requestedRoom = currentRoom.getEast();
+        } else if (direction == 'w') {
+            requestedRoom = currentRoom.getWest();
+        } else if (direction == 's') {
+            requestedRoom = currentRoom.getSouth();
+        }
+        if (requestedRoom == null) {
+            return false;
+        } else {
+            currentRoom = requestedRoom;
+            return true;
+        }
+    }
+    @Override
+    public String toString() {
+        return health + "";
     }
 }

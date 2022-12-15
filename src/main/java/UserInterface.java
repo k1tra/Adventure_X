@@ -1,110 +1,124 @@
 import java.util.Scanner;
 
-    public class UserInterface {
-        private Adventure adventure;
+public class UserInterface {
 
+    private Adventure game;
+    private Scanner s = new Scanner(System.in);
 
-
-        public void start() {
-            adventure = new Adventure();
-
-
-            Scanner sc = new Scanner(System.in);
-            String gameplay; // not needed anymore?
-
-            System.out.println("Hey og velkommen. Nu er det tid til eventyr - you know what you gotta do. Eller gør du?");
-            System.out.println("Du er landet i en krypt. Du må angive retninger efter kompasset. \n" +
-                    "For at gøre det hele lidt mere udfordrende kan du kun svare i engelske retningsangivelser: North, south, east og west.");
-            System.out.println("Du kan også se dig omkring i det rum du er i, ved at skrive 'Look'. \n");
-            System.out.println("Skulle det være helt slemt, så kan du skrive 'help' for at få en generel hjælpeliste udskrevet.\nSkulle det være endnu slemmere end helt slemt, så kan du skrive 'exit' og sågar 'quit' for at afslutte spillet. Psst. Det er ikke muligt at gemme.");
-            //input switch-case gør det muligt for brugeren at lave inputs til den printede menu.
-            do {
-                gameplay=sc.nextLine().toLowerCase();
-                String[] userInputList = gameplay.split(" ",2);
-                String command = userInputList[0];
-                String argument;
-                if(userInputList.length>1){
-                    argument=userInputList[1];
-                }else{
-                    argument="";
-                }
-
-                switch(command){
-                    case "north":
-                        adventure.movePlayer("north");
-                        break;
-                    case "south":
-                        adventure.movePlayer("south");
-                        break;
-                    case "east":
-                        adventure.movePlayer("east");
-                        break;
-                    case "west":
-                        adventure.movePlayer("west");
-                        break;
-                    case "look":
-                       adventure.lookAround();
-                        // System.out.println("name: " + currentRoom.getRoomName() + " description: " + currentRoom.getRoomDescription());
-                        break;
-                    case "help":
-                        System.out.println("Du åbner en støvet hjælpemanual. Siderne kan ikke rives fra hinanden, og dette er hvad du ser:\n Du kan indtaste følgende kommandoer:");
-                        System.out.println("For at få en beskrivelse af dine omgivelser skal du skrive 'Look'");
-                        System.out.println("For at bevæge dig i retninger skal du skrive 'go' efterfulgt af direction (north, south, east, west)");
-                        System.out.println("For at se hvad du har i din inventory skal du skrive 'inventory'");
-                        System.out.println("For at tage et item skal du skrive 'take + item'");
-                        System.out.println("For at samle et item op skal du skrive 'take' efterfulgt af navnet på item");
-                        System.out.println("For at smide et item skal du skrive 'drop' efterfulgt af navnet på itemmet. Det vil så ligge i det rum du smed det i");
-                        System.out.println("For at spise et item skal du skrive 'eat' efterfulgt af navnet på item");
-                        System.out.println("For at equippe et våben skriver du 'equip' efterfulgt af navnet på item");
-                        System.out.println("For at unequippe skriver du 'unequip' efterfulgt af navnet på itemm");
-                        System.out.println("For at angribe skal du skrive 'attack' efterfulgt af navnet på fjenden");
-                        System.out.println("For at afslutte spillet skal du skrive 'exit'");
-                        break;
-                    case "exit":
-                        System.out.println("You have exited the game.");
-                        break;
-                    case "drop":
-                        if(argument.length()>0) {
-                            adventure.playerDropItem(argument);
-                        }else{
-                            System.out.println("What do you want to "+command+"?");
-                        }
-                        break;
-                    case "take":
-                        if(argument.length()>0) {
-                            adventure.takeItem(argument);
-                        }else{
-                            System.out.println("What do you want to "+command+"?");
-                        }
-                        break;
-                    case "inventory":
-                        adventure.lookAtInventory();
-                        break;
-                    case "health":
-                        System.out.println("Your health is "+adventure.playerHealth());
-                        break;
-                    case "eat":
-                        // 25/10- FORTSÆT MED DET HER
-                        if(argument.length()>0) {
-                            adventure.playerEatItem(argument);
-                        }else{
-                            System.out.println("What do you want to "+command+"?");
-                        }
-                        break;
-                    case "equip":
-                        adventure.playerEquip(argument);
-                        break;
-                    case "unequip":
-                        adventure.playerUnEquip(argument);
-                        break;
-                    case "attack":
-                        adventure.playerAttack();
-                        break;
-                        // adventure method der kalder på player her
-                    default:
-                        System.out.println("the switch case has passed to default state");
-                        break;
-                }
-            } while (!gameplay.equals("exit"));
-        }
+    public UserInterface(Adventure controller) {
+        this.game = controller;
     }
+
+    public void start() {
+
+        System.out.println("You thought you were going grocery shopping. Now your wife found you in the back of a dark pornstore. Is it just a nightmare? Hopefully, or you're life will become one. If she doesn't know and accept you, that is. Lets go find out!");
+    }
+    public void gameCommands() {
+        System.out.println("\nThis is how you move around ");
+        System.out.println("-----------------------------");
+        System.out.println("Type 'go north' to go north, 'go south' to go south, 'go east' to go east, 'go west' to go west.'");
+        System.out.println("-----------------------------");
+
+        System.out.println("Type 'inventory' to see what is in your inventory");
+        System.out.println("Type 'equip' to equip weapon or weapons from your inventory");
+        System.out.println("Type 'view' to see equipped weapons");
+        System.out.println("Type 'take' to pick up things from a room");
+        System.out.println("Type 'drop' to drop an item from your inventory");
+        System.out.println("-----------------------------");
+
+        System.out.println("Type 'health/hp' to check current health status");
+        System.out.println("Type 'eat' to consume food");
+        System.out.println("Type 'atk/attack' to attack");
+        System.out.println("Type 'commands' to see your commands");
+        System.out.println("-----------------------------");
+        System.out.println("Type: 'start' to start!");
+    }
+    public void gameEngine() {
+        boolean error = false;
+        do {
+            error = false;
+            String walk = s.nextLine();
+            String[] userInputs = walk.split(" "); // array af strings // deler stringen op og splitter på mellemrum
+            String command = userInputs[0];
+            String userChoice = "";
+            if (userInputs.length > 1) {
+                userChoice = userInputs[1];
+            }
+
+            switch (command) {
+                case "start":
+                    System.out.println("You're currently in: " + game.getCurrentRoom().getName() + " " + game.getCurrentRoom().getRoomDescription());
+                    break;
+                case "go":
+                    boolean succes = game.go(userChoice);
+                    if (succes) {
+                        Room currentRoom = game.getCurrentRoom();
+                        System.out.println("You've gone " + userChoice);
+                        System.out.println(currentRoom.getName() + " " + currentRoom.getRoomDescription());
+                    } else {
+                        System.out.println("Do you really want jump out the window that bad huh?...");
+                    }
+                    break;
+                case "command", "commands":
+                    gameCommands();
+                    break;
+                case "look":
+                    System.out.println("Looking around ");
+                    System.out.println("You are in: " + game.getCurrentRoom().getName());
+                    System.out.println("--------------");
+                    System.out.println(game.getCurrentRoom().getRoomDescription());
+                    System.out.println("\nThese are the items in the room: ");
+                    Room currentRoom = game.getCurrentRoom();
+                    for (Item item : currentRoom.getItems()) {
+                        System.out.println(item.getItemName() + item.getItemDescription());
+                    }
+                    System.out.println("--------------");
+                    System.out.println("This enemy is in the room: "+ game.getCurrentRoom().getEnemies());
+
+                    break;
+
+                case "inventory", "inven", "inv":
+                    System.out.println("Your inventory contains: " + game.getInventory());
+                    break;
+                case "take":
+                    System.out.println("You've picked up " + game.takeItem(userChoice));
+                    break;
+                case "drop":
+                    System.out.println("You've dropped: " + game.dropItem(userChoice));
+                    break;
+                case "health", "hp":
+                    if (game.getHealthPoints() >= 100)
+                        System.out.println("You currently have: " + game.getHealthPoints() + " you're full health!");
+                    if (game.getHealthPoints() < 100 && game.getHealthPoints() >= 50)
+                        System.out.println("You currently have: " + game.getHealthPoints() + " you're good to go!");
+                    if (game.getHealthPoints() < 49 && game.getHealthPoints() >= 25)
+                        System.out.println("You currently have: " + game.getHealthPoints() + " find something to eat...");
+                    if (game.getHealthPoints() >= 1 && game.getHealthPoints() <= 24)
+                        System.out.println("You currently have: " + game.getHealthPoints() + " it's not looking good");
+                    break;
+                case "eat":
+                    System.out.println("You've eaten: " + game.eatFood(userChoice));
+                    System.out.println("You now have: " + game.getHealthPoints());
+                    break;
+                case "equip", "equip weapon", "equipweapon":
+                    System.out.println("You have equipped: " + game.equipWeapon(userChoice));
+                    break;
+                case "equipped":
+                    System.out.println("You currently have: " + game.getEquippedWeapon() + " equipped");
+                    break;
+                case "atk", "attak", "attack":
+                    System.out.println(game.attackEnemy(userChoice));
+                    System.out.println("You now have: " + game.getHealthPoints() + "HP");
+                    try {
+                        System.out.println("Enemy now has: " + game.getEnemyHealthPoints() + "HP");
+                    } catch (NullPointerException npe) {
+                        System.out.println("No more fighting...");
+                    }
+                    break;
+                default:
+                    System.out.println("You can't do that...");
+                    break;
+            }
+        } while (true);
+    }
+}

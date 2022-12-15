@@ -1,92 +1,63 @@
+import java.util.ArrayList;
+
 public class Adventure {
-    // why do I make these attributes? -v- ah, its so we can use those variables?
-    private Player player;
-    private Map map;
 
-    public Adventure(){
-        player = new Player(100);
-        map = new Map();
-        map.createMap();
-        player.setCurrentRoom(map.getStarterRoom());
+    Player player = new Player();
+    Enemy enemy = null;
+
+    public Adventure() {
+        Map map = new Map();
+        map.mapBuild();
+        player.setCurrentRoom(map.getStartRoom());
     }
 
-    public void playerDropItem(String itemName){
-        player.dropItem(itemName);
+    public boolean go(String direction) {
+        return player.move(direction.charAt(0));
     }
-    public int playerHealth(){
+
+    public Room getCurrentRoom() {
+        return player.getCurrentRoom();
+    }
+
+    public ArrayList<Item> getInventory() {
+        return player.getInventory();
+    }
+
+    public Weapon getEquippedWeapon() {
+        return player.getEquippedWeapon();
+    }
+
+    public boolean takeItem(String itemName) {
+        return player.takeItem(itemName);
+    }
+
+    public boolean dropItem(String itemName) {
+        return player.dropItem(itemName);
+    }
+
+    public boolean eatFood(String itemName) {
+        return player.eatFood(itemName);
+    }
+
+    public boolean equipWeapon(String itemName) {
+        return player.equipWeapon(itemName);
+    }
+
+    public AttackCommand attackEnemy(String enemyName) {
+        enemy = player.getCurrentRoom().findEnemy(enemyName);
+        if (enemy == null) {
+            return AttackCommand.NO_ENEMY_NAME;
+        } else {
+            return player.attackEnemy(enemy);
+        }
+    }
+
+    public int getHealthPoints() {
         return player.getHealth();
     }
-    public void playerEquip(String itemName){
-        player.equipWeapon(itemName);
-    }
-    public void playerUnEquip(String itemName){
-        player.unequipWeapon(itemName);
-    }
 
-    public void playerEatItem(String itemName){
-        //player.eatFood(itemName);
-        eatStatus status = player.eatFood(itemName); // eksekverer den også denne metode ved initialiseringen?
-        if(status==eatStatus.eaten){
-            System.out.println("I ate "+itemName+" and your health is now "+player.getHealth());
-        }else if(status==eatStatus.unedible) {
-            System.out.println("You cannot eat that!");
-        }else if(status==eatStatus.nonexisting){
-            System.out.println("That item does not exist!");
-            }
-        }
-
-        public void playerAttack(){
-        player.playerAttack();
-        }
-    public void takeItem(String type){
-        player.pickUpItem(type);
-    }
-
-    /*public void go(String way){
-        switch(way){
-            case "north":
-                Room north = currentRoom.getNorth();
-                if(north==null){
-                    System.out.println("You cannot go that way");
-                    return;
-                }
-                currentRoom=north;
-                break;
-            case "south":
-                Room south = currentRoom.getSouth();
-                if(south==null){
-                    System.out.println("You cannot go that way");
-                    return;
-                }
-                currentRoom=south;
-                break;
-            case "west":
-                Room west = currentRoom.getWest();
-                if(west==null){
-                    System.out.println("You cannot go that way");
-                    return;
-                }
-                currentRoom=west;
-                break;
-            case "east":
-                Room east = currentRoom.getEast();
-                if(east==null){
-                    System.out.println("You cannot go that way");
-                    return;
-                }
-                currentRoom=east;
-                break;
-        }
-    }*/
-    //moveplayer
-    public void movePlayer(String way){
-        player.movePlayer(way);
-    }
-    public void lookAround(){
-        player.lookAround();
-    }
-    public void lookAtInventory(){
-        player.lookAtInventory();
+    public int getEnemyHealthPoints() {
+        return enemy.getHealthPoints();
     }
 
 }

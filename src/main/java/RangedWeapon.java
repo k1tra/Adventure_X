@@ -1,19 +1,18 @@
-public class RangedWeapon extends Weapon {
-    private int stock;
+public class RangedWeapon extends Weapon{
 
-    public RangedWeapon(String type, int damage, int stock) {
-        super(type, damage);
-        this.stock = stock;
+    private int ammo;
+
+    public RangedWeapon(String itemName, String ability, int damage, int ammo) {
+        super(itemName, ability, damage);
+        this.ammo = ammo;
     }
 
-    @Override
-    public int attack() {
-        if (stock > 0) {
-            stock--;
-            return damage;
-        } else {
-            System.out.println("You cannot shoot thin air with thin air");
-            return -1;
-        }
+    public int getAmmoLeft() {
+        return ammo;
+    }
+
+    public boolean canUse() {
+        ammo -= 1;
+        return (ammo > 0);
     }
 }

@@ -1,25 +1,22 @@
-public abstract class Weapon extends Item {
+public abstract class Weapon extends Item{
 
-   protected int damage;
-    // private int durability? evt. lav det sådan at det mister durability med en andel af den skade player modtager.
-    public Weapon(String type, int damage){
-        super(type);
+    private int damage;
+
+    public Weapon(String itemName, String ability, int damage) {
+        super(itemName, ability);
         this.damage = damage;
     }
 
-    //GETTERS
- /*   public String getWeaponName() { LADER TIL AT VÆRE OVERFLØDIG --- BRUG GETTER FRA ITEMKLASSEN
-        return type;
-    }*/
+    public abstract boolean canUse();
 
-    public int getWeaponDamage(){
-
+    public int getDamage() {
         return damage;
-
     }
 
-    public abstract int attack();
-
+    @Override
+    public String toString() {
+        return getItemName() + "," + getItemDescription();
+    }
 }
 
 

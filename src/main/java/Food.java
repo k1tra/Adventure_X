@@ -1,19 +1,19 @@
-public class Food extends Item {
+public class Food  extends Item{
 
-    private int hp;
+    private int healthPoints;
 
-
-
-    public Food(String type, int hp) {
-        super(type);
-        this.hp=hp;
+    public Food(String itemName, String ability, int healthPoints) {
+        super(itemName, ability);
+        this.healthPoints = healthPoints;
     }
 
-    //GETTERS
-    public int getFoodHp(){
-        return hp;
+    public int getHealthPoints() {
+        return healthPoints;
     }
 
+    @Override // den overrider intet, men gemmer til fremtidig brug:
+    public String toString() {
+        return getItemName() + ", " + getItemDescription();
+    }
 }
-
 

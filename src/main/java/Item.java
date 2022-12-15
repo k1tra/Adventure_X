@@ -1,10 +1,23 @@
 public class Item {
-    private String type;
 
-    public Item(String type){
-        this.type=type;
+    private String itemName;
+    private String itemDescription;
+
+    public Item(String itemName, String ability) {
+        this.itemName = itemName;
+        this.itemDescription = ability;
     }
-    public String getType(){
-        return type;
+
+    public String getItemName() {
+        return itemName;
     }
+
+    public String getItemDescription() {
+        return itemDescription;
+    }
+
+    public String toString() {
+        return itemName + ", " + itemDescription;
+    }
+
 }

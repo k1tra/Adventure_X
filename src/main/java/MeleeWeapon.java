@@ -1,13 +1,14 @@
-public class MeleeWeapon extends Weapon {
+public class MeleeWeapon extends Weapon{
 
-  public MeleeWeapon(String type, int damage){
-      super(type, damage);
+
+  public MeleeWeapon(String itemName, String ability, int damage) {
+    super(itemName, ability, damage);
   }
 
-    @Override
-    public int attack() {
-      return damage;
-    }
+  @Override
+  public boolean canUse() {
+    return true;
+  }
 
 
 }

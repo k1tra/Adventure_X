@@ -1,78 +1,95 @@
 import java.util.ArrayList;
-
 public class Room {
-    private String name;
-    private String description;
 
+    private String name;
+    private String roomDescription;
     private Room north;
     private Room south;
-    private Room west;
     private Room east;
+    private Room west;
+    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Enemy> enemies = new ArrayList<>();
 
-    // der laves en tom liste af typen Item kaldet items
-    private ArrayList<Item> itemsRoom = new ArrayList<>();
+    public void addItem(Item item) {
+        items.add(item);
+    }
 
-    public Room(String name, String description){
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
+
+    public void removeEnemy(Enemy enemy) {
+        enemies.remove(enemy);
+    }
+
+    public Room(String name, String roomDescription) {
         this.name = name;
-        this.description = description;
-       // unnessecary to do this => this.north = this.west = this.south = this.east = null;
+        this.roomDescription = roomDescription;
+        this.north = null;
+        this.south = null;
+        this.east = null;
+        this.west = null;
     }
 
-    public void addItemRoom(Item newItem){
-        itemsRoom.add(newItem);
+    public String getName() {
+        return name;
     }
-    // items kan fjernes
-    public Item takeItemRoom(String itemName){
-        for(Item itemRoom : itemsRoom) {
-            if(itemRoom.getType().contains(itemName)){
-                itemsRoom.remove(itemRoom);
-                return itemRoom;
+
+    public String getRoomDescription() {
+        return roomDescription;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public Enemy findEnemy(String enemyName) {
+        for (Enemy enemy : enemies) {
+            if (enemy.getEnemyName().equals(enemyName)) {
+                return enemy;
             }
         }
         return null;
     }
 
-
-    // Getters
-    public String getRoomName(){
-        return name;
-    }
-    public String getRoomDescription(){
-        return description;
-    }
-    public Room getNorth(){
-        return north;
-    }
-    public Room getSouth(){
-        return south;
-    }
-    public Room getWest(){
-        return west;
-    }
-    public Room getEast(){
-        return east;
-    }
-    // returnerer listen
-    public ArrayList<Item> getWeapons(){
-        return itemsRoom;
+    public void addEnemy(Enemy enemy) {
+        enemies.add(enemy);
+        enemy.setCurrentRoom(this);
     }
 
-
-    // Setters
-    public void setNorth(Room north){
+    public void setNorth(Room north) {
         this.north = north;
     }
-    public void setSouth(Room south){
+
+    public void setSouth(Room south) {
         this.south = south;
     }
-    public void setWest(Room west){
-        this.west = west;
-    }
-    public void setEast(Room east){
+
+    public void setEast(Room east) {
         this.east = east;
     }
 
+    public void setWest(Room west) {
+        this.west = west;
+    }
 
+    public Room getNorth() {
+        return north;
+    }
 
+    public Room getSouth() {
+        return south;
+    }
 
+    public Room getEast() {
+        return east;
+    }
+
+    public Room getWest() {
+        return west;
+    }
 }
