@@ -3,14 +3,14 @@ public class Map {
     private Room startRoom = null;
 
     public void mapBuild() {
-        Room room1 = new Room("Room 1:", "You're wife sees your bling. Is that Catherine's watch?! she gushes. You show her you're dong. What are you going to do? RUN");
-        Room room2 = new Room("Room 2:", "is that blood over in the corner?.. hmm I knew something was up ");
-        Room room3 = new Room("Room 3:", "damn, rotten meat? this stinks... ");
-        Room room4 = new Room("Room 4:", "The view is awesome from up here! ");
-        Room room5 = new Room("Room 5:", "I knew it was in here! THE SANDEVISTIAN");
-        Room room6 = new Room("Room 6:", "the view of Night City... it is what is it I guess");
-        Room room7 = new Room("Room 7:", "this place just gets more creepy");
-        Room room8 = new Room("Room 8:", "I see something right up ahead, lets look out for traps ");
+        Room room1 = new Room("Room 1:", "You're wife sees your bling. Is that Catherine's watch?! Your wife gushes. You show her you're dong. What are you going to do? RUN");
+        Room room2 = new Room("Room 2:", "You are a room away from your wife. ");
+        Room room3 = new Room("Room 3:", "Room number two is written on the door");
+        Room room4 = new Room("Room 4:", "Room number four is written on the door. There is a photograph hanging on the wall. Is that your wife holding standing in the ranks of your parents' wedding? ");
+        Room room5 = new Room("Room 5:", "You are about to escape. Knock knock goes the door.");
+        Room room6 = new Room("Room 6:", "You are in room number 6. There is a view.");
+        Room room7 = new Room("Room 7:", "Roomm number seven; Memoire of Fritzl it says on the wall.");
+        Room room8 = new Room("Room 8:", "Uf. You are in Austria. ");
         Room room9 = new Room("Room 9:", "its just dark and lonely in here. ");
 
         Item item3 = new Item("goggles", " +utility");

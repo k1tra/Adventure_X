@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7bc9db4-3f5f-4eb3-8685-03e25b2baaec" name="Changes" comment="Det er muligt at angribe luften, &#10;En int tjekker om der er stock i RangedWeapon, hvis der er, angriber den, hvis ikke, går den videre og siger at det ikke er muligt at angribe">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AttackCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Enemy.java" afterDir="false" />
+    <list default="true" id="e7bc9db4-3f5f-4eb3-8685-03e25b2baaec" name="Changes" comment="Det er muligt at angribe fjenden. Bonk, man slår. Bonk, i det samme bliver man slået tilbage. Synkron slåskamp, det' det helt nye.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Adventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Adventure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MeleeWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MeleeWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RangedWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RangedWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,18 +34,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/jeppe/IdeaProjects/adventureTime",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jeppe/IdeaProjects/adventureTime&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Adventure">
     <configuration name="Unnamed" type="AntRunConfiguration" nameIsGenerated="true">
       <method v="2">
@@ -89,7 +77,8 @@
       <workItem from="1666420398360" duration="20983000" />
       <workItem from="1666712013292" duration="16087000" />
       <workItem from="1667217842298" duration="6122000" />
-      <workItem from="1671085701943" duration="5708000" />
+      <workItem from="1671085701943" duration="5987000" />
+      <workItem from="1671139561159" duration="157000" />
     </task>
     <task id="LOCAL-00001" summary="target/ added to gitignore">
       <created>1665574571492</created>
@@ -196,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666767407071</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Det er muligt at angribe fjenden. Bonk, man slår. Bonk, i det samme bliver man slået tilbage. Synkron slåskamp, det' det helt nye.">
+      <created>1671121418340</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671121418340</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +226,8 @@
     <MESSAGE value="Weapon classes oprettet succesfuldt --- &#10;Weapons placeret i rum 1. Muligt at take weapon," />
     <MESSAGE value="Det er muligt at equippe/unequippe items. Bliver henholdsvist tilføjet og fjernet fra inventory. &#10;Skal lave om i ENUM-status-navnene." />
     <MESSAGE value="Det er muligt at angribe luften, &#10;En int tjekker om der er stock i RangedWeapon, hvis der er, angriber den, hvis ikke, går den videre og siger at det ikke er muligt at angribe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Det er muligt at angribe luften, &#10;En int tjekker om der er stock i RangedWeapon, hvis der er, angriber den, hvis ikke, går den videre og siger at det ikke er muligt at angribe" />
+    <MESSAGE value="Det er muligt at angribe fjenden. Bonk, man slår. Bonk, i det samme bliver man slået tilbage. Synkron slåskamp, det' det helt nye." />
+    <option name="LAST_COMMIT_MESSAGE" value="Det er muligt at angribe fjenden. Bonk, man slår. Bonk, i det samme bliver man slået tilbage. Synkron slåskamp, det' det helt nye." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
